@@ -1,9 +1,9 @@
 
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
+import { motion } from 'framer-motion';
 import './App.css';
 
 const Square=(props)=>{
-
   return(
     <button className='square'  style={{ color: props.value === 'X' ? 'blue' : 'orange'}} onClick={props.onClicked}>
       {props.value}
@@ -17,8 +17,8 @@ const Board=()=>{
   const [sq,setsq]=useState(initial);
   const [Xturn,setXturn]=useState(true);
   const win=winner(sq);
- 
-  const whenclicked = (i)=>{
+  console.log(win);
+const whenclicked = (i)=>{
     
    if(win || Boolean(sq[i])){
     return;}
@@ -43,21 +43,38 @@ const Board=()=>{
   
   let turn= `PLAYER :   ${ Xturn? "X":'O'}`
  
-  if(win===true){
+  if(win===true || nowinner(sq)){
     turn='GAME OVER'
     
    }
+
+   
   
    function Alert(){
+    let m= false
     if(win===true){
-      const m=`${Xturn?'O':'X'} is the winner`
+      m=`${Xturn?'O':'X'} is the winner`
+    }
+      else if(nowinner(sq)){
+      m='No Winner'
+      }
       return(
+        <div>
+          <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.2 }}
+          className="scare"
+        >
+           {m &&
         <div id="winbox" >
         {m}
+        </div>}
+        </motion.div>
+       
         </div>
-      )
-    }
-    return;
+      );
+
    }
    
    
@@ -89,15 +106,26 @@ const Board=()=>{
   )
 }
 
+
 function winner(sq){
   const lines=[[0,1,2],[3,4,5],[6,7,8],[0,4,8],[6,4,2],[1,4,7],[0,3,6],[2,5,8]]
   for (let line of lines){
-    const[a,b,c]=line;
+    const [a,b,c]=line;
     if(sq[a] && sq[a]===sq[b] && sq[a]===sq[c]){
       return true;
     }
   }
   return false;
+}
+
+function nowinner(sq){
+  for (let i of sq){
+    if(i==null){
+      return false;
+    }
+    
+  }
+  return true
 }
 
 function App() {

@@ -16,12 +16,33 @@
   color: white;
   
   padding: 5;
-  font-size: 120px;
+  font-size: 240%;
+  font-family: cursive;
   text-align: center;
   border: 1px solid #999;
-  height: 150px;
-  width: 150px;
+  height: 8vw;
+  width: 8vw;
+  max-width:140px;
+  min-width :100px;
+  min-height: 100px;
 
+}
+
+.curved-tl{
+  border-radius: 30% 0 0 0 ;
+  background-color:#444;
+}
+
+.curved-tr{
+  border-radius: 0 10% 0 0 0;
+}
+
+.curved-br{
+  border-radius: 0 0 10% 0;
+}
+
+.curved-bl{
+  border-radius: 0 0 0 10%;
 }
 #new{
   background-color: rgb(51, 171, 17);
