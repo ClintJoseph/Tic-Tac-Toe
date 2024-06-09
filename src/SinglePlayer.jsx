@@ -123,7 +123,7 @@ function SinglePlayer() {
    <div className='game'>
     <div id='title'><span style={{color:'blue'}}>Tic</span><span style={{color:'orange'}}>-Tac-</span><span style={{color:'blue'}}>Toe</span></div>
     <SBoard/>
-    <button id="new" onClick={()=>{window.location.reload()}}>New Game</button>
+    <button id="new" onClick ={()=>{navigate('/Tic-Tac-Toe/singleplayer')}}>New Game</button>
 
     <button id = 'new' onClick ={()=>{navigate('/Tic-Tac-Toe')}}>MultiPlayer</button>
     </div>
