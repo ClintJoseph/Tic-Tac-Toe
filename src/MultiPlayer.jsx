@@ -109,7 +109,7 @@ function MultiPlayer() {
     <div id='title'><span style={{color:'blue'}}>Tic</span><span style={{color:'orange'}}>-Tac-</span><span style={{color:'blue'}}>Toe</span></div>
     <MBoard/>
     <button id="new" onClick={()=>{window.location.reload()}}>New Game</button>
-    <button id = "new" onClick = {()=>navigate('/singleplayer')}>vsComputer</button>
+    <button id = "new" onClick = {()=>navigate('/Tic-Tac-Toe/singleplayer')}>vsComputer</button>
     </div>
 
   );

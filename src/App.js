@@ -11,7 +11,7 @@ function App() {
       <div>
       <Routes>
         <Route path="/Tic-Tac-Toe" element={<MultiPlayer />} />
-        <Route path="/singleplayer" element={<SinglePlayer />} />
+        <Route path="/Tic-Tac-Toe/singleplayer" element={<SinglePlayer />} />
      </Routes>
       </div>
     </Router>
